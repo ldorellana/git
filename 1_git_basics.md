@@ -4,6 +4,7 @@
 ```
 git config --global user.name '{name}'
 git config --global user.email '{email}'
+git config --global core.editor '{editro}' # 'code --wait' for VScode
 ```
 
 ### CHECK IF WE ARE IN GIT REPO
@@ -15,4 +16,77 @@ git status
 ```
 git init
 ```
+
+### ADD NEW AND MOD FILES [DOCS](https://git-scm.com/docs/git-log)
+```
+git add file1 file2 file3 # add specific files
+git add . # add all the changes
+```
+
+### COMMIT CHANGES
+
+```
+git commit -m '{message}' 
+git commit --amend # correct the previous commit
+```
+
+### CHECK COMMITS
+```
+git log
+git log --oneline
+```
+
+### IGNORE FILES
+Inside the file `.gitignore` 
+```
+filename.extension # ignore this file
+*.file_extension # ignore files with that extension
+folderName/ # ignore the folder
+```
+
+### HEAD
+Head is a pointer to a branch pointer
+Current location in the branch. 
+If we move to another branch, it has a different head
+
+### BRANCHES
+```
+git branch # show the branches * = current branch
+git brannch {branch_name} # create new branch at current HEAD
+git switch {branch_name} # change to a different branch
+git checkout {branch_name} # also change to another branch
+git switch -c {branch_name} # create a new branch and switch to it
+git checkout -b {branch_name} # create a new branch adn switch to it
+```
+
+#### Delete branches
+First switch to a different branch, then merge it, then delete it
+```
+git merge?
+git swtich {other_branch}
+git branch -d {branch_to_delete} # -D to force delete
+```
+
+#### Rename branch
+first switch to the branch to rename
+```
+git switch {branch_to_rename}
+git branch -m {branch_to_rename} {new_branch_name}
+```
+
+### MERGE BRANCHES
+
+*Fast forward merge* the branch just needs to catch up to the other (move the head)
+*Merge commit* the main branch gets a new commit
+
+
+- Branches are merge, not specific commits
+- Always merge to the current HEAD branch
+1. Move to the 'main' branch
+2. Merge the branches
+```
+git switch {main_branch}
+git merge {branch_to_merge}
+```
+
 
