@@ -131,3 +131,63 @@ git stash clear # delete all the stash
 4. git swtich previous_branch
 5. git stash pop
 ```
+
+### CHEKING OUT OLD COMITS 
+
+Head detached, going check to a previous commit
+```
+git checkout {commit_hash}
+```
+Get back to a branch
+```
+git switch {branch_name}
+```
+Create a new branch
+```
+git switch -c {new_branch_name}
+```
+Check previous commits
+```
+git checkout HEAD-{n}   # check a previous commit n = 1 one before, etc. 
+```
+Return to the branch beore the head detach
+```
+git switch - # return to the commit beore 
+```
+
+### DISCARDING THE CHANGES BEFORE COMMIT
+To discard the changes done before the last commit
+```
+git checkout HEAD file # return file to its state when head started
+git chekcout -- file # same as the previous
+```
+
+```
+git restore {file} # restore a file to the state after the last commit
+```
+Return to a previous commit
+```
+git restore --source HEAD~{n} {file} # return to the specified commit
+```
+### UNSTAGE FILES
+```
+git restore --staged {file} # usntage files
+```
+
+### RESET COMMITS
+The reset will delete the commits, but not the changes  
+so then it is possible to re-commit in another branch if needed
+without loosing the progress
+```
+git reset {commit_hash} # deletes the commmits but not the changes
+git reset --hard {commit_hash} # delets the changes and commits
+```
+
+### REVERT COMMITS
+Similar to reset, but does not delete the "history"
+*reset* creates a new commit with the reverted changes  
+*reset* moves the commit pointer backward  
+```
+git revert {commit_hash}
+```
+
