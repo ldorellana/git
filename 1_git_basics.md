@@ -52,7 +52,7 @@ If we move to another branch, it has a different head
 ### BRANCHES
 ```
 git branch # show the branches * = current branch
-git brannch {branch_name} # create new branch at current HEAD
+git branch {branch_name} # create new branch at current HEAD
 git switch {branch_name} # change to a different branch
 git checkout {branch_name} # also change to another branch
 git switch -c {branch_name} # create a new branch and switch to it
@@ -89,4 +89,45 @@ git switch {main_branch}
 git merge {branch_to_merge}
 ```
 
+#### Merge Conflicts
+1. Open the files with conficts
+2. Edit to remove the conflicts, keep one of both 
+3. Remove the conflict markers
+4. Add changes and make the commit
 
+
+### GIT DIFF
+Lists all the changes in the working directory
+```
+git diff # compares unstaged changes 
+git diff HEAD # staged and unstaged chagnes since HEAD
+git diff --staged/--cached # list changes between staged area and last commit
+git diff {filename} # diff specific files, can add --staged, HEAD, etc
+git diff branch1..branch2  # compare different branches
+git diff commit1..commit2 # compare changes between commits, can get commit code with log
+
+```
+
+### GIT STASH
+ Allows you to change branch 
+ - without takin the changes to the new branch
+ - without having to commit the changes if we are not done yet
+
+```
+git stash # save changes in stash
+git stash save # same as git stash
+git stash pop # take out the changes
+git stash apply # the changes are not deleted from stash like in pop
+git stash list # show the different stashed changes
+git stash apply stash@{#} # apply a saved stash in the list
+git stash drop stash@{#} # drop an specific stash
+git stash clear # delete all the stash
+```
+
+```
+1. git stash
+2. git switch other_branch
+3. Do stuff
+4. git swtich previous_branch
+5. git stash pop
+```
