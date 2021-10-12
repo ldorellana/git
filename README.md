@@ -16,6 +16,5 @@ Git learning
 
 - Remote
 - Cloning
-- 
 
 
