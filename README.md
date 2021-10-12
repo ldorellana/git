@@ -1,5 +1,5 @@
 # GIT
-Git learning 
+Git cheatsheet for future references
 
 
 # 1_git_basics.md
@@ -10,7 +10,6 @@ Git learning
 - Stashing
 - Discarding/Restoring
 - Reset/Revert
-
 
 # 2_remote_repositories.md
 
